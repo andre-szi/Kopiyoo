@@ -98,6 +98,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" style={{ color: '#d1c7bc', transition: 'color 0.2s' }}>
+                  Hubungi Kami &amp; Kontak
+                </Link>
+              </li>
+              <li>
                 <Link href="/orders" style={{ color: '#d1c7bc', transition: 'color 0.2s' }}>
                   Pelacakan Pesanan
                 </Link>

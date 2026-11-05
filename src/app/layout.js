@@ -7,7 +7,7 @@ import Toast from '@/components/Toast';
 import ProductDetailModal from '@/components/ProductDetailModal';
 
 export const metadata = {
-  title: 'Kopi Gayo Marketplace - Highland Specialty Coffee & Pemesanan Online',
+  title: 'KopiYoo - Highland Specialty Coffee & Pemesanan Online',
   description: 'Sistem Informasi Marketplace dan Pemesanan Kopi Gayo Berbasis Web. Eksplorasi single origin Aceh Tengah, Bener Meriah, proses Wine, Honey, dan Natural.',
 };
 

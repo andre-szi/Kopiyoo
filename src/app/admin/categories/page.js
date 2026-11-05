@@ -39,7 +39,7 @@ export default function AdminCategoriesPage() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14 }}>
         <div>
           <h1 className="font-serif" style={{ fontSize: '1.8rem', color: '#fcf9f2', margin: 0 }}>
-            Kelola Kategori Kopi (CRUD)
+            Kelola Kategori Kopi
           </h1>
           <p style={{ color: '#9ca3af', fontSize: '0.88rem', marginTop: 4 }}>
             Klasifikasi varietas dan metode pemrosesan kopi Gayo.

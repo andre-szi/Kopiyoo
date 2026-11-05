@@ -106,27 +106,6 @@ export default function AdminLayout({ children }) {
         </div>
 
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          <Link
-            href="/dashboard"
-            className="btn btn-secondary btn-sm"
-            style={{
-              padding: '7px 16px',
-              fontSize: '0.82rem',
-              borderColor: 'rgba(245, 158, 11, 0.4)',
-              color: '#fbbf24'
-            }}
-          >
-            <Coffee size={15} />
-            <span>Buka Dashboard User</span>
-          </Link>
-          <Link
-            href="/"
-            className="btn btn-secondary btn-sm"
-            style={{ padding: '7px 16px', fontSize: '0.82rem' }}
-          >
-            <Home size={15} />
-            <span>Ke Beranda</span>
-          </Link>
           <button
             onClick={() => {
               logout();

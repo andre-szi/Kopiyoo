@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Coffee, ShieldCheck, User, ArrowRight, Lock, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
@@ -15,6 +15,16 @@ export default function AuthPage() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+
+  // Check if opened with ?mode=register
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('mode') === 'register') {
+        setIsRegister(true);
+      }
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

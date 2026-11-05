@@ -277,21 +277,6 @@ export default function AdminDashboardPage() {
               <Plus size={18} />
               <span>+ Tambah Barang Baru</span>
             </button>
-
-            <Link
-              href="/dashboard"
-              className="btn btn-secondary"
-              style={{
-                padding: '9px 18px',
-                gap: 8,
-                borderColor: 'rgba(245, 158, 11, 0.4)',
-                color: '#fbbf24'
-              }}
-            >
-              <Eye size={16} />
-              <span>Lihat Tampilan Dashboard User</span>
-              <ExternalLink size={14} />
-            </Link>
           </div>
         </div>
 
@@ -363,11 +348,11 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* Card 3: Total Barang di Dashboard User */}
+        {/* Card 3: Total Produk Kopi */}
         <div className="glass-panel" style={{ padding: 20, border: '1px solid rgba(168, 85, 247, 0.35)', background: 'rgba(28, 23, 19, 0.75)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
             <span style={{ fontSize: '0.78rem', color: '#9ca3af', fontWeight: 700, textTransform: 'uppercase' }}>
-              Barang di Dashboard User
+              Total Produk Kopi
             </span>
             <div style={{ width: 34, height: 34, borderRadius: 8, background: 'rgba(168, 85, 247, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#c084fc' }}>
               <Coffee size={18} />
@@ -401,7 +386,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* =========================================================================
-          TAB NAVIGATION SWITCHER (CRUD BARANG USER vs PIPELINE PESANAN vs PERBANDINGAN)
+          TAB NAVIGATION SWITCHER (KATALOG PRODUK & STOK vs PIPELINE PESANAN)
           ========================================================================= */}
       <div
         style={{
@@ -431,7 +416,7 @@ export default function AdminDashboardPage() {
           }}
         >
           <Layers size={17} />
-          <span>Dashboard CRUD Barang User</span>
+          <span>Kelola Katalog &amp; Stok Kopi</span>
           <span
             style={{
               background: '#9f1239',
@@ -464,7 +449,7 @@ export default function AdminDashboardPage() {
           }}
         >
           <ShoppingBag size={17} />
-          <span>Status Pesanan & Pipeline</span>
+          <span>Status Pesanan &amp; Pipeline</span>
           <span
             style={{
               background: 'rgba(255, 255, 255, 0.1)',
@@ -477,28 +462,6 @@ export default function AdminDashboardPage() {
             {orders.length}
           </span>
         </button>
-
-        <button
-          onClick={() => setActiveTab('compare')}
-          style={{
-            padding: '11px 22px',
-            borderRadius: '12px 12px 0 0',
-            fontWeight: 700,
-            fontSize: '0.92rem',
-            cursor: 'pointer',
-            border: activeTab === 'compare' ? '1.5px solid rgba(225, 29, 72, 0.5)' : '1px solid transparent',
-            borderBottom: activeTab === 'compare' ? '2px solid #be123c' : '1px solid transparent',
-            background: activeTab === 'compare' ? 'rgba(159, 18, 57, 0.25)' : 'transparent',
-            color: activeTab === 'compare' ? '#fda4af' : '#9ca3af',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            transition: 'all 0.2s'
-          }}
-        >
-          <Info size={17} />
-          <span>Perbandingan: Admin vs User Dashboard</span>
-        </button>
       </div>
 
       {/* =========================================================================
@@ -510,10 +473,10 @@ export default function AdminDashboardPage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 14 }}>
             <div>
               <h2 className="font-serif" style={{ fontSize: '1.5rem', color: '#fcf9f2', margin: 0 }}>
-                Manajemen CRUD Barang (Tampil di Dashboard User)
+                Manajemen Katalog Produk &amp; Stok Kopi
               </h2>
               <p style={{ color: '#9ca3af', fontSize: '0.86rem', marginTop: 4, marginBottom: 0 }}>
-                Admin dapat menambah barang baru, mengubah data &amp; stok langsung, menghapus barang, serta melihat bagaimana barang tersebut tampil di hadapan pembeli.
+                Kelola penuh katalog kopi, kontrol stok secara real-time, perbarui harga, dan kelola varian produk marketplace.
               </p>
             </div>
 
@@ -606,11 +569,11 @@ export default function AdminDashboardPage() {
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1.5px solid rgba(255, 255, 255, 0.12)', color: '#9ca3af', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  <th style={{ padding: '12px 10px' }}>Produk Kopi (User)</th>
+                  <th style={{ padding: '12px 10px' }}>Produk Kopi</th>
                   <th style={{ padding: '12px 10px' }}>Origin &amp; Roasting</th>
                   <th style={{ padding: '12px 10px' }}>Harga (/200g)</th>
                   <th style={{ padding: '12px 10px' }}>Stok Real-time</th>
-                  <th style={{ padding: '12px 10px' }}>Status Tampil di User</th>
+                  <th style={{ padding: '12px 10px' }}>Status Produk</th>
                   <th style={{ padding: '12px 10px', textAlign: 'center' }}>Aksi CRUD</th>
                 </tr>
               </thead>
@@ -760,7 +723,7 @@ export default function AdminDashboardPage() {
                           </div>
                         </td>
 
-                        {/* Status Tampil di Dashboard User */}
+                        {/* Status Produk */}
                         <td style={{ padding: '12px 10px' }}>
                           <span
                             style={{
@@ -777,14 +740,14 @@ export default function AdminDashboardPage() {
                             }}
                           >
                             <CheckCircle2 size={12} />
-                            Tampil di User
+                            Produk Aktif
                           </span>
                         </td>
 
                         {/* Action Buttons (CRUD) */}
                         <td style={{ padding: '12px 10px', textAlign: 'center' }}>
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-                            {/* Preview as User */}
+                            {/* Preview */}
                             <button
                               onClick={() => setPreviewCoffee(coffee)}
                               style={{
@@ -799,7 +762,7 @@ export default function AdminDashboardPage() {
                                 alignItems: 'center',
                                 justifyContent: 'center'
                               }}
-                              title="Lihat preview tampilan di dashboard user"
+                              title="Lihat rincian produk kopi"
                             >
                               <Eye size={15} />
                             </button>
@@ -1004,111 +967,7 @@ export default function AdminDashboardPage() {
       {/* =========================================================================
           TAB 3: PERBANDINGAN DASHBOARD ADMIN vs DASHBOARD USER
           ========================================================================= */}
-      {activeTab === 'compare' && (
-        <div className="glass-panel" style={{ padding: 28, border: '1.5px solid rgba(159, 18, 57, 0.35)' }}>
-          <h2 className="font-serif" style={{ fontSize: '1.45rem', color: '#fcf9f2', marginBottom: 8 }}>
-            Tinjauan Perbedaan: Dashboard Admin vs Dashboard User
-          </h2>
-          <p style={{ color: '#9ca3af', fontSize: '0.88rem', marginBottom: 24 }}>
-            Sistem memisahkan secara tegas pengalaman dan hak akses antara Admin (Pengelola) dengan User (Pelanggan/Pembeli).
-          </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
-            {/* Admin Dashboard Column */}
-            <div
-              style={{
-                background: 'rgba(159, 18, 57, 0.12)',
-                border: '1.5px solid rgba(225, 29, 72, 0.4)',
-                borderRadius: 16,
-                padding: 22
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-                <div style={{ width: 36, height: 36, borderRadius: 10, background: '#9f1239', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
-                  <ShieldCheck size={20} />
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '1.15rem', color: '#fda4af', margin: 0, fontWeight: 700 }}>
-                    Dashboard Admin (/admin)
-                  </h3>
-                  <div style={{ fontSize: '0.76rem', color: '#fca5a5' }}>Khusus Super Admin &amp; Pengelola</div>
-                </div>
-              </div>
-
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.85rem', color: '#d1c7bc' }}>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#fda4af', fontWeight: 800 }}>✓</span>
-                  <span><strong>Hak Akses Penuh:</strong> Wajib login dengan email <code>admin@kopigayo.id</code>.</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#fda4af', fontWeight: 800 }}>✓</span>
-                  <span><strong>Fitur CRUD Barang:</strong> Menambah produk baru, mengedit data kopi, menghapus varian, dan mengubah stok real-time.</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#fda4af', fontWeight: 800 }}>✓</span>
-                  <span><strong>Manajemen Pesanan:</strong> Mengubah status pesanan dari Belum Bayar hingga Selesai.</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#fda4af', fontWeight: 800 }}>✓</span>
-                  <span><strong>Tema Visual:</strong> Nuansa Dark Obsidian dengan Burgundy/Wine (#9f1239) &amp; Security Badges.</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* User Dashboard Column */}
-            <div
-              style={{
-                background: 'rgba(245, 158, 11, 0.08)',
-                border: '1.5px solid rgba(245, 158, 11, 0.35)',
-                borderRadius: 16,
-                padding: 22
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-                <div style={{ width: 36, height: 36, borderRadius: 10, background: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#120e09' }}>
-                  <Coffee size={20} />
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '1.15rem', color: '#fbbf24', margin: 0, fontWeight: 700 }}>
-                    Dashboard User (/dashboard)
-                  </h3>
-                  <div style={{ fontSize: '0.76rem', color: '#fde68a' }}>Khusus Customer &amp; Pecinta Kopi</div>
-                </div>
-              </div>
-
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.85rem', color: '#d1c7bc' }}>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#fbbf24', fontWeight: 800 }}>✓</span>
-                  <span><strong>Fokus Pengguna:</strong> Melihat promo, menelusuri biji kopi pilihan, melacak pesanan aktif, dan checkout.</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#fbbf24', fontWeight: 800 }}>✓</span>
-                  <span><strong>Barang Tersinkron:</strong> Menampilkan katalog kopi hasil CRUD dari Dashboard Admin.</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#fbbf24', fontWeight: 800 }}>✓</span>
-                  <span><strong>Poin &amp; Kupon:</strong> Menampilkan poin loyalitas member, kupon diskon (GAYO10, GAYOPREMIUM).</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#fbbf24', fontWeight: 800 }}>✓</span>
-                  <span><strong>Tema Visual:</strong> Nuansa hangat khas kopi dataran tinggi (Warm Amber, Espresso, Gold Crema).</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 22, textAlign: 'center' }}>
-            <Link
-              href="/dashboard"
-              className="btn btn-primary"
-              style={{ padding: '10px 24px', fontSize: '0.88rem' }}
-            >
-              <span>Uji Langsung: Buka Dashboard User</span>
-              <ExternalLink size={16} />
-            </Link>
-          </div>
-        </div>
-      )}
 
       {/* =========================================================================
           MODAL 1: CREATE (TAMBAH PRODUK BARU KE DASHBOARD USER)
